@@ -1,0 +1,7 @@
+<routes xmlns="http://camel.apache.org/schema/spring">
+  <route id="docker-to-jms">
+    <from uri="timer://foo?period=5000"/>
+    <to uri="docker://demo-app:latest?cmd=GET /api/health"/>
+    <to uri="jms:queue:legacy.system"/>
+  </route>
+</routes>

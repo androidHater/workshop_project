@@ -1,0 +1,8 @@
+version: '3'
+services:
+  esb:
+    image: wso2/wso2esb:latest
+    ports:
+      - "8280:8280"
+    volumes:
+      - ./config:/home/wso2/deployment
