@@ -4,6 +4,9 @@ metadata:
   name: demo-app
 spec:
   replicas: 2
+  selector:
+    matchLabels:
+      app: demo-app
   template:
     metadata:
       labels:
@@ -14,3 +17,11 @@ spec:
         image: demo-app:latest
         ports:
         - containerPort: 80
+        resources:
+          requests:
+            cpu: "250m"       # zaručeně přidělených 0.25 CPU
+            memory: "128Mi"   # zaručeně přidělených 128 MiB RAM
+          limits:
+            cpu: "500m"       # maximálně 0.5 CPU
+            memory: "256Mi"   # maximálně 256 MiB RAM
+
